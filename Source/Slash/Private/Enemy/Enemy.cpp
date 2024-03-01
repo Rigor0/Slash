@@ -5,6 +5,7 @@
 #include "Components/SkeletalMeshComponent.h"
 #include "Slash/DebugMacros.h"
 #include "Components/CapsuleComponent.h"
+#include "Kismet/GameplayStatics.h"
 
 
 AEnemy::AEnemy()
@@ -62,6 +63,15 @@ void AEnemy::GetHit(const FVector& ImpactPoint)
 	if (CrossProduct.Z < 0)
 	{
 		Theta *= -1.f;
+	}
+
+	if (HitSound)
+	{
+		UGameplayStatics::PlaySoundAtLocation(
+			this,
+			HitSound,
+			ImpactPoint
+		);
 	}
 }
 
