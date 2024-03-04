@@ -20,7 +20,6 @@ public:
 protected:
 	virtual void BeginPlay() override;
 
-
 	/**
 	* Play Montage Functions
 	*/
@@ -43,4 +42,7 @@ private:
 
 	UPROPERTY(EditAnywhere, Category = "Sounds")
 	USoundBase* HitSound;
+
+	UPROPERTY(EditAnywhere, Category = "VisualEffects")
+	UParticleSystem* HitParticles;
 };
