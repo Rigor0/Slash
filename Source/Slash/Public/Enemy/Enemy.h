@@ -34,6 +34,12 @@ public:
 	virtual void GetHit_Implementation(const FVector& ImpactPoint) override;
 
 private:
+	UPROPERTY(VisibleAnywhere)
+	class UAttributeComponent* Attributes;
+
+	UPROPERTY(VisibleAnywhere)
+	class UWidgetComponent* HealthBarWidget;
+
 	/**
 	* Montages
 	*/
