@@ -18,7 +18,18 @@ public:
 	AEnemy();
 
 protected:
+
+	UPROPERTY(EditAnywhere)
+	class UNiagaraComponent* DeathEffect;
+	UPROPERTY(EditAnywhere)
+	UStaticMeshComponent* Hat;
+
+	UFUNCTION()
+    void OnDeathEffectFinished(UNiagaraComponent* FinishedComponent);
+
 	virtual void BeginPlay() override;
+	void Die();
+	void DestroyMeshes();
 
 	/**
 	* Play Montage Functions
@@ -44,6 +55,9 @@ private:
 	*/
 	UPROPERTY(EditDefaultsOnly, Category = Montages)
 	UAnimMontage* HitReactMontage;
+
+	UPROPERTY(EditDefaultsOnly, Category = Montages)
+	TArray<UAnimMontage*> DeathMontages;
 
 	UPROPERTY(EditAnywhere, Category = "Sounds")
 	USoundBase* HitSound;
